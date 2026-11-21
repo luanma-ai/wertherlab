@@ -1,0 +1,29 @@
+# 依赖
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# 构建产物
+dist/
+build/
+target/
+
+# 临时 / 缓存
+.pip-*
+pip-*
+.pytest_cache/
+*.log
+*.tmp
+_scratch/
+_*
+
+# 系统
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 编辑器
+.vscode/
+.idea/
