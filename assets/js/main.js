@@ -93,7 +93,7 @@
   var gallery = document.getElementById('gallery');
   var shots = [];
 
-  loadJSON('assets/data/photos.json', PHOTOS_FALLBACK).then(function (photos) {
+  loadJSON('assets/data/photos.v2.json', PHOTOS_FALLBACK).then(function (photos) {
     if (!photos || !photos.length) {
       gallery.innerHTML = '<p class="loading-hint">照片还没放上来。</p>';
       return;
@@ -172,7 +172,7 @@
   /* ---------- 涌泉录 ---------- */
   var poemList = document.getElementById('poemList');
 
-  loadJSON('assets/data/poems.json', POEMS_FALLBACK).then(function (poems) {
+  loadJSON('assets/data/poems.v2.json', POEMS_FALLBACK).then(function (poems) {
     if (!poems || !poems.length) {
       poemList.innerHTML = '<p class="loading-hint">诗还没写上来。</p>';
       return;
