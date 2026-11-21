@@ -87,11 +87,8 @@
   var POEMS_FALLBACK = window.__POEMS__ || [];
 
   /* ---------- 照片墙 ---------- */
-  var sizeMap = {
-    wide: 's1', tall: 's2', panorama: 's5', full: 's6'
-  };
-  // 让版面交错好看：按序赋予 A/B 版面
-  var layoutSeq = ['s1', 's2', 's3', 's4', 's5', 's6'];
+  // 版面：按图片比例分配，宽图占 7/5，竖图占窄栏，全景通栏
+  var layoutSeq = ['s1', 's2', 's3', 's4'];
 
   var gallery = document.getElementById('gallery');
   var shots = [];
@@ -102,9 +99,13 @@
       return;
     }
     var html = photos.map(function (p, i) {
-      var cls = layoutSeq[i % layoutSeq.length];
+      var cls;
+      if (p.size === 'panorama') cls = 's5';
+      else if (p.size === 'portrait') cls = 's6';
+      else if (p.size === 'tall') cls = 's3';
+      else cls = layoutSeq[i % layoutSeq.length];
       return '<figure class="shot ' + cls + '" data-index="' + i + '">' +
-        '<img src="assets/img/' + esc(p.file) + '" alt="' + esc(p.alt || p.title) + '" loading="lazy">' +
+        '<img src="assets/img/thumb/' + esc(p.file) + '" data-full="assets/img/' + esc(p.file) + '" alt="' + esc(p.alt || p.title) + '" loading="lazy" decoding="async">' +
         '<span class="shot-index">' + String(i + 1).padStart(2, '0') + '</span>' +
         '<figcaption class="shot-cap">' + esc(p.title || '') + '</figcaption>' +
         '</figure>';
@@ -133,7 +134,7 @@
       var fig = shots[current];
       var img = fig.querySelector('img');
       var cap = fig.querySelector('.shot-cap');
-      lbImg.src = img.getAttribute('src');
+      lbImg.src = img.getAttribute('data-full') || img.getAttribute('src');
       lbImg.alt = img.getAttribute('alt') || '';
       lbCap.textContent = (cap ? cap.textContent : '') +
         '　' + String(current + 1).padStart(2, '0') + ' / ' + String(shots.length).padStart(2, '0');
@@ -179,7 +180,7 @@
     poemList.innerHTML = poems.map(function (p, i) {
       var rev = (i % 2 === 1) ? ' reverse' : '';
       var img = p.image
-        ? '<div class="poem-side"><img src="assets/img/' + esc(p.image) + '" alt="' + esc(p.title) + '" loading="lazy"></div>'
+        ? '<div class="poem-side"><img src="assets/img/thumb/' + esc(p.image) + '" alt="' + esc(p.title) + '" loading="lazy" decoding="async"></div>'
         : '<div class="poem-side"></div>';
       var lines = (p.lines || []).map(function (l) {
         return '<p>' + esc(l) + '</p>';
