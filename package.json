@@ -1,0 +1,11 @@
+{
+  "name": "wertherlab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "维特404 的个人主页 —— 静态站，无依赖",
+  "scripts": {
+    "start": "npx -y serve@14 -s . -l tcp://0.0.0.0:$PORT"
+  },
+  "author": "werther",
+  "license": "UNLICENSED"
+}
