@@ -1,44 +1,58 @@
 [
   {
-    "file": "photo1.jpg",
-    "title": "芝罘路 · 午后的影子",
-    "alt": "芝罘路的黄墙与观光车",
+    "file": "p1.jpg",
+    "title": "陆家嘴 · 蓝调时刻",
+    "alt": "陆家嘴夜景，金色晚霞压在深蓝天幕上",
     "size": "wide",
-    "date": ""
+    "date": "2026-10"
   },
   {
-    "file": "photo2.jpg",
-    "title": "城市醒来的时候",
-    "alt": "城市天际线与晨光",
-    "size": "tall",
-    "date": ""
-  },
-  {
-    "file": "photo3.jpg",
-    "title": "海蚀洞",
-    "alt": "海蚀洞与岩层",
-    "size": "tall",
-    "date": ""
-  },
-  {
-    "file": "photo4.jpg",
-    "title": "石头与水之间",
-    "alt": "俯拍的海岸与碎石",
+    "file": "p2.jpg",
+    "title": "东方明珠 · 金色时分",
+    "alt": "东方明珠与对岸天际线，水面倒影",
     "size": "wide",
-    "date": ""
+    "date": "2026-10"
   },
   {
-    "file": "photo5.jpg",
-    "title": "蓝调时刻",
-    "alt": "入夜的城市与海岸",
-    "size": "panorama",
-    "date": ""
+    "file": "p3.jpg",
+    "title": "溪谷",
+    "alt": "林间溪谷，青绿色调，雾气弥漫",
+    "size": "tall",
+    "date": "2026-10"
   },
   {
-    "file": "photo6.jpg",
-    "title": "逆光里的一个人",
-    "alt": "逆光下的礁石与人影",
-    "size": "panorama",
-    "date": ""
+    "file": "p4.jpg",
+    "title": "竹林小屋",
+    "alt": "竹林深处的旧屋，逆光",
+    "size": "wide",
+    "date": "2026-10"
+  },
+  {
+    "file": "p5.jpg",
+    "title": "武康大楼",
+    "alt": "武康大楼，砖红立面与蓝天",
+    "size": "wide",
+    "date": "2026-10"
+  },
+  {
+    "file": "p6.jpg",
+    "title": "仰视",
+    "alt": "仰视的摩天楼与蓝天",
+    "size": "portrait",
+    "date": "2026-10"
+  },
+  {
+    "file": "p7.jpg",
+    "title": "武康路 296 号",
+    "alt": "武康路街边，树影落在红砖墙上",
+    "size": "wide",
+    "date": "2026-10"
+  },
+  {
+    "file": "p8.jpg",
+    "title": "黄昏街道",
+    "alt": "黄昏时分的街道，路灯初亮",
+    "size": "portrait",
+    "date": "2026-10"
   }
 ]
