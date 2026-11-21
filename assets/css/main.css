@@ -352,8 +352,10 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .shot.s2 { grid-column: span 5; aspect-ratio: 3 / 2; }
 .shot.s3 { grid-column: span 5; aspect-ratio: 3 / 2; }
 .shot.s4 { grid-column: span 7; aspect-ratio: 3 / 2; }
+/* 全景通栏 */
 .shot.s5 { grid-column: span 12; aspect-ratio: 21 / 9; }
-.shot.s6 { grid-column: span 12; aspect-ratio: 21 / 9; }
+/* 竖构图：占 4 栏，高度拉长 */
+.shot.s6 { grid-column: span 4; aspect-ratio: 2 / 3; }
 
 /* ---------- 大事记入口 ---------- */
 .milestone-teaser {
@@ -821,7 +823,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   .milestone-teaser { grid-template-columns: 1fr; }
   .milestone-visual { aspect-ratio: 16 / 10; order: -1; }
   .shot.s1, .shot.s2, .shot.s3, .shot.s4 { grid-column: span 12; }
-  .shot.s5, .shot.s6 { aspect-ratio: 16 / 9; }
+  .shot.s5 { aspect-ratio: 16 / 9; }
+  .shot.s6 { grid-column: span 12; aspect-ratio: 3 / 2; }
   .scroll-hint { display: none; }
   .nav { gap: 16px; }
   .nav a { font-size: 12px; letter-spacing: .06em; }
