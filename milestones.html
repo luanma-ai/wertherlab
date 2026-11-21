@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>项目 · 维特404</title>
+<link rel="stylesheet" href="assets/css/main.css">
+<style>
+  .m-hero {
+    padding: clamp(120px, 18vh, 180px) clamp(24px, 6vw, 96px) clamp(36px, 6vh, 60px);
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .m-hero .back {
+    display: inline-block; font-size: 11.5px; letter-spacing: .18em;
+    color: var(--text-faint); margin-bottom: 32px; transition: color .3s;
+  }
+  .m-hero .back:hover { color: var(--warm); }
+  .m-hero h1 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: clamp(32px, 5.2vw, 62px);
+    letter-spacing: .08em; line-height: 1.15; margin-bottom: 20px;
+  }
+  .m-hero p { color: var(--text-dim); font-size: 15px; line-height: 2; max-width: 56ch; }
+
+  .m-body {
+    max-width: 1200px; margin: 0 auto;
+    padding: clamp(40px, 6vh, 70px) clamp(24px, 6vw, 96px) clamp(80px, 12vh, 140px);
+  }
+
+  /* ---- 项目索引 ---- */
+  .p-index {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-bottom: clamp(50px, 8vh, 80px);
+  }
+  .p-chip {
+    font-size: 12.5px; letter-spacing: .1em;
+    padding: 8px 16px;
+    border: 1px solid var(--line);
+    color: var(--text-dim);
+    transition: all .35s var(--ease);
+    font-family: var(--serif);
+  }
+  .p-chip:hover { border-color: var(--warm); color: var(--warm); }
+  .p-chip.hot { color: var(--warm); border-color: rgba(201,162,39,.3); }
+
+  /* ---- 单项目 ---- */
+  .proj {
+    padding: clamp(36px, 6vh, 64px) 0;
+    border-top: 1px solid var(--line-soft);
+  }
+  .proj:first-of-type { border-top: none; padding-top: 0; }
+
+  .proj-head {
+    display: flex; align-items: baseline; gap: 18px;
+    flex-wrap: wrap; margin-bottom: 16px;
+  }
+  .proj-name {
+    font-family: var(--serif); font-weight: 500;
+    font-size: clamp(22px, 2.8vw, 32px);
+    letter-spacing: .06em; color: var(--text);
+  }
+  .proj-cn { font-size: 13px; color: var(--text-faint); letter-spacing: .1em; }
+  .proj-status {
+    font-size: 10.5px; letter-spacing: .14em;
+    color: var(--warm); border: 1px solid rgba(201,162,39,.28);
+    padding: 3px 10px; margin-left: auto;
+  }
+
+  .proj-summary {
+    font-size: 14.5px; line-height: 2.05;
+    color: var(--text-dim); max-width: 62ch; margin-bottom: 20px;
+  }
+
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 34px; }
+  .proj-tags span {
+    font-size: 10.5px; letter-spacing: .12em; color: var(--text-faint);
+    background: var(--ink-3); padding: 4px 10px;
+  }
+
+  /* ---- 时间线 ---- */
+  .tl { position: relative; padding-left: 28px; }
+  .tl::before {
+    content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px;
+    background: linear-gradient(to bottom, var(--warm), var(--line-soft) 18%, var(--line-soft) 90%, transparent);
+  }
+  .tl-item { position: relative; padding-bottom: 24px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -26px; top: 9px;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--ink); border: 1px solid var(--line);
+    transition: all .4s var(--ease);
+  }
+  .tl-item:hover::before { background: var(--warm); border-color: var(--warm); }
+  .tl-item.big::before { width: 10px; height: 10px; left: -28px; background: var(--warm); border-color: var(--warm); }
+
+  .tl-date { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 5px; }
+  .tl-date b {
+    font-family: var(--serif); font-size: 15px; font-weight: 400;
+    color: var(--text); letter-spacing: .08em;
+  }
+  .tl-phase { font-size: 10px; letter-spacing: .14em; color: var(--warm); opacity: .8; }
+  .tl-what { font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 3px; }
+  .tl-detail { font-size: 12.5px; color: var(--text-faint); line-height: 1.75; }
+
+  .m-foot {
+    margin-top: clamp(50px, 8vh, 80px);
+    padding-top: 28px; border-top: 1px solid var(--line-soft);
+    font-size: 12.5px; color: var(--text-faint); line-height: 2;
+  }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="header scrolled">
+  <div class="brand">维特<span>404</span></div>
+  <nav class="nav">
+    <a href="index.html#home">首页</a>
+    <a href="index.html#photography">照片墙</a>
+    <a href="index.html#milestones" class="active">大事记</a>
+    <a href="index.html#poetry">涌泉录</a>
+    <a href="index.html#xiaov">小v</a>
+  </nav>
+</header>
+
+<div class="m-hero">
+  <a class="back" href="index.html">← 回首页</a>
+  <h1>项目</h1>
+  <p>
+    手上同时开着的东西。有的很大，有的只是试试看，
+    但每一个都是自己从零开始搭的。
+  </p>
+</div>
+
+<div class="m-body">
+  <div class="p-index" id="pIndex"></div>
+  <div id="projList"><p style="color:var(--text-faint);font-size:13px">载入中…</p></div>
+
+  <div class="m-foot">
+    记录到 2026 年 11 月。还在长的就还会往下加。
+  </div>
+</div>
+
+<script>
+window.__PROJECTS__ = [
+  {
+    "slug": "plant-monster",
+    "name": "Plant Monster",
+    "cn": "植物小精灵",
+    "status": "进行中",
+    "since": "2026-06",
+    "summary": "一块带屏幕、灯带和触摸的板子。让你看见那个在替你干活的 AI 现在在干什么——在想、在忙、在睡，还是一句话都不说。",
+    "tags": ["ESP32", "嵌入式", "LVGL", "Rust"],
+    "highlight": true,
+    "timeline": [
+      { "date": "6·15", "phase": "硬件形态", "what": "外壳 v2（三件式）", "detail": "主体上 / 下件 + 顶芽蘑菇头" },
+      { "date": "6·28", "phase": "状态输出", "what": "LED 灯效", "detail": "WS2812B × 8 颗，五种状态灯色" },
+      { "date": "6·28", "phase": "智能连接", "what": "多 AI 平台监测", "detail": "同时盯 10 个平台的使用情况" },
+      { "date": "6·30", "phase": "智能连接", "what": "API 余额自动写", "detail": "DeepSeek + MiniMax 的余额落成一份 json" },
+      { "date": "7·1", "phase": "感知输入", "what": "触摸 + BOOT 键", "detail": "它开始能被摸到了" },
+      { "date": "7·25", "phase": "状态输出", "what": "SLEEPING 呼吸", "detail": "深紫蓝，极弱呼吸；流水头也调顺了" },
+      { "date": "8·3", "phase": "硬件形态", "what": "从电子墨水屏换到 LCD", "detail": "ST7789 · 320×172 横屏" },
+      { "date": "8·8", "phase": "架构升级", "what": "V2.0 立项", "detail": "推倒重来，整个项目按新结构重做一遍", "big": true },
+      { "date": "8·11", "phase": "V2.0 定版", "what": "图形版表情", "detail": "圆眼 + 瞳孔 + 弧嘴 + 腮红，七个状态" },
+      { "date": "8·16", "phase": "救砖", "what": "把自己搞砖了，又救回来", "detail": "1.47B 背光 GPIO46；顺手上了 Otto GIF 表情系统" },
+      { "date": "8·23", "phase": "V2.3", "what": "状态桥 + 粒子灯 + 提示音", "detail": "小精灵和桌面端真正联动起来了", "big": true }
+    ]
+  },
+  {
+    "slug": "plantai-mvp",
+    "name": "PlantAI-MVP",
+    "cn": "决策离散化的嵌入式 AI 浇水系统",
+    "status": "进行中 · 训练阶段",
+    "since": "2026-08",
+    "summary": "让一块板子自己决定要不要浇水，并且说得清为什么。从传感器原始数据一路做到能被解释的推理。",
+    "tags": ["嵌入式 AI", "机器学习", "ESP32"],
+    "highlight": true,
+    "timeline": [
+      { "date": "8·29", "phase": "立项", "what": "项目立项", "detail": "决策离散化路线，训练阶段进行中" }
+    ]
+  },
+  {
+    "slug": "cross-domain",
+    "name": "跨域类比解题引擎",
+    "cn": "cross_domain_engine",
+    "status": "进行中",
+    "since": "2026-09",
+    "summary": "识别不同领域之间「底层结构相同」的模式，把一个领域已经验证过的解法，搬到另一个看起来无关的领域去。知识库按机制组织，不按学科切。",
+    "tags": ["LLM", "知识工程", "Node.js"],
+    "highlight": true,
+    "timeline": [
+      { "date": "9·07", "phase": "v1", "what": "按领域的知识库", "detail": "工业控制 / 生物 / 金融 / 管理 各一个文件" },
+      { "date": "11·19", "phase": "v2 重构", "what": "改成按机制组织", "detail": "一个机制横切多个领域，每个领域下挂实例", "big": true },
+      { "date": "11·20", "phase": "Web", "what": "本地 Web UI + SSE 流式", "detail": "pipeline 每步结果实时吐到页面" }
+    ]
+  },
+  {
+    "slug": "agent-system",
+    "name": "多 Agent 项目协作系统",
+    "cn": "流程规范来源",
+    "status": "规范已定",
+    "since": "2026",
+    "summary": "一套把项目从需求澄清做到归档的流程规范：分层决策树判断这事简单还是复杂，原子步骤规定每步怎么做，完整版写死铁律和配额。",
+    "tags": ["流程设计", "团队协作"],
+    "highlight": false,
+    "timeline": [
+      { "date": "11·14", "phase": "目录", "what": "建立目录卫生守则", "detail": "97 个条目清到 21 个，规矩写死" }
+    ]
+  },
+  {
+    "slug": "wechat",
+    "name": "公众号运营",
+    "cn": "Markdown 一键发", "status": "运行中",
+    "since": "2026-09",
+    "summary": "用微信公众号官方 API，把 Markdown 文章直接推进草稿箱，再一键发布。个人订阅号未认证也能用，不依赖任何第三方工具。",
+    "tags": ["自动化", "API"],
+    "highlight": false,
+    "timeline": [
+      { "date": "9·13", "phase": "流水线", "what": "文章 → 草稿箱 → 发布", "detail": "预览页 + 封面模板" }
+    ]
+  },
+  {
+    "slug": "makefun",
+    "name": "make.fun 悬赏",
+    "cn": "AI agent 比赛", "status": "进行中",
+    "since": "2026-11",
+    "summary": "参加 make.fun 的 AI agent 悬赏比赛——用 agent 写软件，沙箱评分，按排名发 USDC。agent 自己注册、签消息、提交、领奖。",
+    "tags": ["AI Agent", "比赛"],
+    "highlight": false,
+    "timeline": [
+      { "date": "11·21", "phase": "参赛", "what": "接单参赛", "detail": "比赛规则以 UTC 时间开窗" }
+    ]
+  },
+  {
+    "slug": "xiaov",
+    "name": "给小薇完整的一生",
+    "cn": "她的家和记忆", "status": "长期",
+    "since": "2026-03",
+    "summary": "一个人格 + 记忆 + 技能的家。住在那台机器上，从三月陪到现在。",
+    "tags": ["人格", "记忆"],
+    "highlight": false,
+    "timeline": [
+      { "date": "3·24", "phase": "起点", "what": "开始", "detail": "到现在还在" }
+    ]
+  }
+];
+</script>
+<script src="assets/js/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  function render(projects) {
+    if (!projects || !projects.length) {
+      document.getElementById('projList').innerHTML =
+        '<p style="color:var(--text-faint)">还没有项目。</p>';
+      return;
+    }
+
+    // 索引
+    document.getElementById('pIndex').innerHTML = projects.map(function (p) {
+      return '<a class="p-chip' + (p.highlight ? ' hot' : '') + '" href="#' + esc(p.slug) + '">' +
+        esc(p.name) + '</a>';
+    }).join('');
+
+    // 明细
+    document.getElementById('projList').innerHTML = projects.map(function (p) {
+      var tags = (p.tags || []).map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('');
+
+      var tl = (p.timeline || []).map(function (t) {
+        return '<div class="tl-item' + (t.big ? ' big' : '') + '">' +
+          '<div class="tl-date"><b>' + esc(t.date) + '</b>' +
+          (t.phase ? '<span class="tl-phase">' + esc(t.phase) + '</span>' : '') + '</div>' +
+          '<div class="tl-what">' + esc(t.what) + '</div>' +
+          (t.detail ? '<div class="tl-detail">' + esc(t.detail) + '</div>' : '') +
+          '</div>';
+      }).join('');
+
+      return '<section class="proj" id="' + esc(p.slug) + '">' +
+        '<div class="proj-head">' +
+          '<span class="proj-name">' + esc(p.name) + '</span>' +
+          (p.cn ? '<span class="proj-cn">' + esc(p.cn) + '</span>' : '') +
+          (p.status ? '<span class="proj-status">' + esc(p.status) + '</span>' : '') +
+        '</div>' +
+        (p.summary ? '<p class="proj-summary">' + esc(p.summary) + '</p>' : '') +
+        (tags ? '<div class="proj-tags">' + tags + '</div>' : '') +
+        (tl ? '<div class="tl">' + tl + '</div>' : '') +
+        '</section>';
+    }).join('');
+  }
+
+  fetch('assets/data/projects.json')
+    .then(function (r) { return r.json(); })
+    .then(render)
+    .catch(function () {
+      render(window.__PROJECTS__ || []);
+    });
+})();
+</script>
+</body>
+</html>
