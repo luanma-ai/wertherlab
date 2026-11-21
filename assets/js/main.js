@@ -244,7 +244,7 @@
       if (!h) { fail('这个浏览器不支持'); return; }
       if (h.slice(0, 16) === GATE_HASH) {
         try { sessionStorage.setItem('diary_ok', h); } catch (err) {}
-        location.href = 'pages/diary.html';
+        location.href = 'diary.html';
       } else {
         fail('不对');
         gateInput.value = '';
