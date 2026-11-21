@@ -299,7 +299,7 @@ window.__PROJECTS__ = [
     }).join('');
   }
 
-  fetch('assets/data/projects.json')
+  fetch('assets/data/projects.v2.json')
     .then(function (r) { return r.json(); })
     .then(render)
     .catch(function () {
